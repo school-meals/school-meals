@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <style>
+      .page-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .image-half-container {
+        perspective: 100vh;
+        display: block;
+        position: relative;
+        width: 80vw;
+        height: 80vw;
+        max-width: 80vh;
+        max-height: 80vh;
+      }
+
+      .image-half {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        transition: transform 2.5s;
+        transform-style: preserve-3d;
+        background-size: 200%;
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgLTQ4LjUwMSAtMTUuNSA1MTIgNTEyIiBoZWlnaHQ9IjUxMnB4IiBpZD0iTGF5ZXJfMSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSItNDguNTAxIC0xNS41IDUxMiA1MTIiIHdpZHRoPSI1MTJweCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGcgaWQ9IkxheWVyXzYiPjxnPjxnPjxwYXRoIGQ9Ik0tMC41LDI1Ni41MDRjMCwxMzUuOTk2LDEyOCwyMjMuOTk2LDE2MCwyMjMuOTk2czQwLTE2LDQ4LTE2VjE0NC41MDVjMCwwLTMyLTMyLTgwLTMyICAgICBDNDcuNSwxMTIuNTA1LTAuNSwxNTIuNTA1LTAuNSwyNTYuNTA0eiIgZmlsbD0iI0YwNUY1MCIvPjwvZz48Zz48cGF0aCBkPSJNNDE1LjQ5OCwyNTYuNTA0QzQxNS40OTgsMzkyLjUsMjg3LjUsNDgwLjUsMjU1LjUsNDgwLjVzLTQwLTE2LTQ4LTE2VjE0NC41MDVjMCwwLDMyLTMyLDgwLTMyICAgICBDMzY3LjUsMTEyLjUwNSw0MTUuNDk4LDE1Mi41MDUsNDE1LjQ5OCwyNTYuNTA0eiIgZmlsbD0iI0QyNTM0MiIvPjwvZz48Zz48cGF0aCBkPSJNMjA3LjUsMTIwLjUwNWMtNC40MTgsMC04LTMuNTg2LTgtOHYtNDhjMC00LjQxNCwzLjU4Mi04LDgtOHM4LDMuNTg2LDgsOHY0OCAgICAgQzIxNS41LDExNi45MTksMjExLjkxOCwxMjAuNTA1LDIwNy41LDEyMC41MDV6IiBmaWxsPSIjNUM1RDVFIi8+PC9nPjxnPjxwYXRoIGQ9Ik0zMjcuNSwwLjUwNWMwLDAtNDcuMDA4LTAuOTkyLTcyLDI0cy0yNCw3MS45OTItMjQsNzEuOTkyczQ3LjAwOCwxLDcyLTI0ICAgICBDMzI4LjQ5Miw0Ny41MTMsMzI3LjUsMC41MDUsMzI3LjUsMC41MDV6IiBmaWxsPSIjNDFDMTlEIi8+PC9nPjwvZz48L2c+PGcgaWQ9IkxheWVyXzFfMV8iLz48L3N2Zz4=');
+      }
+
+      .image-half.left {
+        transform: rotate3d(0, 1, 0, 90deg);
+        transform-origin: center right 0;
+        background-position: left;
+        left: 0;
+      }
+
+      .image-half.right {
+        transform: rotate3d(0, -1, 0, 90deg);
+        transform-origin: center left 0;
+        background-position: right;
+        right: 1px;
+      }
+
+      .image-half.unfolded {
+        transform: rotate3d(0, 0, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="image-half-container">
+        <div class="image-half left"></div>
+        <div class="image-half right"></div>
+      </div>
+    </div>
+    <script>
+      function unfold() {
+        var a = document.getElementsByClassName('image-half')
+        for (var i = 0; i < a.length; i++) {
+          a[i].className += ' unfolded';
+        }
+      }
+
+      function init() {
+        window.setTimeout(unfold, 0);
+      }
+
+      window.onload = init;
+    </script>
+  </body>
+</html>
