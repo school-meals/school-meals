@@ -28,6 +28,7 @@
         left: 50%;
         margin-right: -50%;
         transform: translate(-50%, -50%);
+        transition: opacity 1s;
       }
 
       .image-half-container {
@@ -38,6 +39,8 @@
         height: 80vw;
         max-width: 80vh;
         max-height: 80vh;
+        transition: opacity 1s;
+        opacity: 0;
       }
 
       .image-half {
@@ -67,6 +70,14 @@
       .image-half.unfolded {
         transform: rotate3d(0, 0, 0, 0);
       }
+
+      .transparent {
+        opacity: 0;
+      }
+
+      .opaque {
+        opacity: 1;
+      }
     </style>
   </head>
   <body>
@@ -78,14 +89,31 @@
     </div>
     <script>
       function unfold() {
-        var a = document.getElementsByClassName('image-half')
+        var a = document.getElementsByClassName('image-half');
         for (var i = 0; i < a.length; i++) {
           a[i].className += ' unfolded';
         }
       }
 
+      function fadeIn() {
+        var container = document.getElementsByClassName('image-half-container')[0];
+        container.className += ' opaque';
+      }
+
+      function fadeOut() {
+        var container = document.getElementsByClassName('page-container')[0];
+        container.className += ' transparent';
+      }
+
+      function redirect() {
+        window.location = 'https://app.schoolmeals.us';
+      }
+
       function init() {
-        window.setTimeout(unfold, 0);
+        window.setTimeout(fadeIn,      0);
+        window.setTimeout(unfold,      0);
+        window.setTimeout(fadeOut,  3000);
+        window.setTimeout(redirect, 4000);
       }
 
       window.onload = init;
