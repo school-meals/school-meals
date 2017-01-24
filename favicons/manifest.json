@@ -1,0 +1,18 @@
+{
+    "name": "School Meals",
+    "icons": [
+        {
+            "src": "favicons/android-chrome-192x192.png?v=xQo3Nm4YyX",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "favicons/android-chrome-512x512.png?v=xQo3Nm4YyX",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
